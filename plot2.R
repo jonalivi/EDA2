@@ -39,8 +39,9 @@ data.read <- function(data.dir=file.path(".","data")) {
 # prepare the data for plotting -------------------------------------------
 data.read()
 ## in order to plot total emissions, group
-## the 'scc' dataset by 'year' and summarize the
-## 'Emissions'
+## the 'nei' dataset by 'year', select only
+## observations regarding Baltimore City 
+## and summarize the 'Emissions'
 library(dplyr)
 nei <- group_by(nei, year)
 nei.for.plot <- nei %>%
