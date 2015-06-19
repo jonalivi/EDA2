@@ -43,8 +43,8 @@ data.read()
 ## observations regarding Baltimore City 
 ## and summarize the 'Emissions'
 library(dplyr)
-nei <- group_by(nei, year)
 nei.for.plot <- nei %>%
+      group_by(year) %>%
       filter(fips == "24510") %>%
       summarize(total_Emissions=sum(Emissions))
 nei.for.plot$year <- as.numeric(nei.for.plot$year)

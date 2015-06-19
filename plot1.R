@@ -44,8 +44,9 @@ data.read()
 ## the 'nei' dataset by 'year' and summarize the
 ## 'Emissions'
 library(dplyr)
-nei <- group_by(nei, year)
-nei.for.plot <- summarize(nei, total_Emissions=sum(Emissions))
+nei.for.plot <- nei %>% 
+      group_by(year) %>%
+      summarize(total_Emissions=sum(Emissions))
 nei.for.plot$year <- as.numeric(nei.for.plot$year)
 
 # plot the data -----------------------------------------------------------
