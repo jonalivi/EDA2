@@ -72,10 +72,11 @@ text(x=subset(x,sub),
      adj=c(-0.2,0.1), cex=.75)
 par(cex.axis=0.8)
 ## draw the x axis
-axis(1,at=c(1999,2002,2005,2008))
+axis(1,at=x)
 ## draw the y axis
-y_at = c(4*10^6,5*10^6,6*10^6,7*10^6)
-axis(2,at=,y_at,
+y_at = seq(from = floor(min(y)/10^6)*10^6, 
+           to = ceiling(max(y)/10^6)*10^6, by=10^6)
+axis(2, at=y_at,
      labels=c(format(y_at,scientific=FALSE,big.mark=' ')))
 dev.off()
 
