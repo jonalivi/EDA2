@@ -29,8 +29,6 @@ data.read <- function(data.dir=file.path(".","data")) {
             data.download(data.dir)
       message(paste("Reading ", nei.file, "...", collapse=""))
       nei <<- readRDS(nei.file)
-      message(paste("Reading ", scc.file, "...", collapse=""))
-      scc <<- readRDS(scc.file)
 }
 
 # prepare the data for plotting -------------------------------------------
