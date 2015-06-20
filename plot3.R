@@ -30,7 +30,7 @@ data.download <- function(data.dir=char(0)) {
 
 data.read <- function(data.dir=file.path(".","data")) {
       nei.file <- file.path(data.dir, "summarySCC_PM25.rds")
-      if (file.exists(nei.file))
+      if (!file.exists(nei.file))
             data.download(data.dir)
       message(paste("Reading ", nei.file, "...", collapse=""))
       nei <<- readRDS(nei.file)
