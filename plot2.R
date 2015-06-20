@@ -54,20 +54,13 @@ plot(x=nei.for.plot$year,
      y=nei.for.plot$total_Emissions,
      main="Total Emissions of PM2.5 in Baltimore",
      xlab="Years", ylab="Total Emissions of PM2.5 (tons)",
-     type='o', axes=FALSE, pch=19, frame=TRUE)
+     type='p', axes=FALSE, pch=19, frame=TRUE)
 x <- nei.for.plot$year
 y <- nei.for.plot$total_Emissions
 ## label values near the dots
-sub <- c(F,T,F,T)
-text(x=subset(x,sub),
-     y=subset(y,sub),
-     labels = subset(format(y,nsmall=0, digits=4),sub),
-     adj=c(1.2,0.7), cex=.75)
-sub <- !sub
-text(x=subset(x,sub),
-     y=subset(y,sub),
-     labels = subset(format(y,nsmall=0, digits=4),sub),
-     adj=c(-0.2,0.1), cex=.75)
+text(x, y,
+     labels = format(y, scientific=FALSE, digits=0),
+     adj=c(0.5,-0.5), cex=.75)
 par(cex.axis=0.8)
 ## draw the x axis
 axis(1,at=x)
@@ -75,4 +68,6 @@ axis(1,at=x)
 y_at = seq(from = floor(min(y)/500)*500, 
            to = ceiling(max(y)/500)*500, by=500)
 axis(2, at=y_at, labels=y_at)
+abline(h=nei.for.plot$total_Emissions[1], col="blue")
+abline(h=nei.for.plot$total_Emissions[4], col="blue")
 dev.off()
