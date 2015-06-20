@@ -30,7 +30,7 @@ data.read <- function(data.dir=file.path(".","data")) {
       if (file.exists(nei.file))
             data.download(data.dir)
       message(paste("Reading ", nei.file, "...", collapse=""))
-      nei <- readRDS(nei.file)
+      nei <<- readRDS(nei.file)
 }
 
 # prepare the data for plotting -------------------------------------------
