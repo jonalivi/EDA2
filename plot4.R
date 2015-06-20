@@ -55,18 +55,19 @@ nei.for.plot <- nei %>%
 
 library(ggplot2)
 g <- ggplot(aes(year, totalCoalRelated), data=nei.for.plot)
-g <- g + geom_point() + geom_line(lty=2)
+g <- g + geom_point()
 years <- unique(nei.for.plot$year)
 g <- g + scale_x_continuous(breaks=years)
 g <- g + scale_y_continuous(label=function(x) {
-            lab <- format(x, digits=0, 
-                          scientific=FALSE, big.mark=" ")
+            lab <- format(x/1000, digits=0, scientific=FALSE)
       })
 g <- g + labs(
-      title="PM2.5 Emissions from Coal Combustion-Related Sources\nin the USA in 1999-2008")
-g <- g + labs(x = "Years", y = "PM2.5 Emissions (tons)")
+      title="Emissions of PM2.5\nfrom Coal Combustion-Related Sources\nin the USA in 1999-2008")
+g <- g + labs(x = "Years", y = "Emissions of PM2.5 (ktons)")
 g <- g + geom_text(aes(
-      label=format(totalCoalRelated, digits=0, 
+      label=format(totalCoalRelated/1000, digits=1, 
                    scientific=FALSE, big.mark=" ")),
       size=3, vjust=1.5)
+g <- g + geom_hline(aes(yintercept=totalCoalRelated[1]),color="blue")
+g <- g + geom_hline(aes(yintercept=totalCoalRelated[4]),color="blue")
 ggsave("./plot4.png")
