@@ -53,12 +53,19 @@ nei.for.plot$year <- as.numeric(nei.for.plot$year)
 
 library(ggplot2)
 g <- ggplot(aes(year, emissions), data=nei.for.plot)
-g <- g + geom_point() + geom_line(lty=2)
+g <- g + geom_point()
 g <- g + facet_wrap(~type, nrow=2)
+coords <- data.frame(
+      emissions=c(nei.for.plot$emissions[c(1:4,13:16)]),
+      type=c(nei.for.plot$type[c(1:4,13:16)]))
+g <- g + geom_hline(aes(yintercept=emissions), coords, color="blue")
 years <- unique(nei.for.plot$year)
 g <- g + scale_x_continuous(breaks=years)
-g <- g + labs(title="PM2.5 Emissions for Baltimore City in 1999-2008")
-g <- g + labs(x = "Years", y = "PM2.5 Emissions (tons)")
+g <- g + geom_text(aes(
+      label=format(emissions, digits=0)),
+      size=2, vjust=1.5)
+g <- g + labs(title="Emissions of PM2.5 for Baltimore City in 1999-2008")
+g <- g + labs(x = "Years", y = "Emissions of PM2.5 (tons)")
 library(grid)
-g <- g + theme(panel.margin = unit(10,"points"))
+g <- g + theme(panel.margin.x = unit(8,"points"))
 ggsave("./plot3.png")
