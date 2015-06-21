@@ -63,9 +63,9 @@ years <- unique(nei.for.plot$year)
 g <- g + scale_x_continuous(breaks=years)
 g <- g + geom_text(aes(
       label=format(emissions, digits=0)),
-      size=2, vjust=1.5)
-g <- g + labs(title="Emissions of PM2.5 for Baltimore City in 1999-2008")
+      size=2, vjust=-.5, hjust=.5)
+g <- g + labs(title="Emissions of PM2.5 for Baltimore City\nin 1999-2008")
 g <- g + labs(x = "Years", y = "Emissions of PM2.5 (tons)")
 library(grid)
 g <- g + theme(panel.margin.x = unit(8,"points"))
-ggsave("./plot3.png")
+ggsave("./plot3.png", width=5, height=5, dpi=120)

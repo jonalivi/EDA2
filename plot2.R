@@ -52,7 +52,7 @@ png(filename="./plot2.png")
 ## do not draw axes, draw dots and lines
 plot(x=nei.for.plot$year, 
      y=nei.for.plot$total_Emissions,
-     main="Total Emissions of PM2.5 in Baltimore",
+     main="Total Emissions of PM2.5 in Baltimore City",
      xlab="Years", ylab="Total Emissions of PM2.5 (tons)",
      type='p', axes=FALSE, pch=19, frame=TRUE)
 x <- nei.for.plot$year

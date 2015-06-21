@@ -57,4 +57,4 @@ g <- g + geom_text(aes(
       size=3, vjust=1.5, hjust=1)
 g <- g + geom_hline(aes(yintercept=vehicleRelated[1]),color="blue")
 g <- g + geom_hline(aes(yintercept=vehicleRelated[4]),color="blue")
-ggsave("./plot5.png")
+ggsave("./plot5.png", width=5, height=5, dpi=120)

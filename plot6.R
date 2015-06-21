@@ -56,7 +56,7 @@ g <- g + scale_y_continuous(label=function(x) {
       lab <- format(x, digits=0)
 })
 g <- g + labs(
-      title="Emissions of PM2.5 from Motor Vehicle Sources\nin Baltimore City and Los Angeles County\nin 1999-2008")
+      title="Emissions of PM2.5\nfrom Motor Vehicle Sources\nin Baltimore City\nand Los Angeles County\nin 1999-2008")
 g <- g + labs(x = "Years", y = "Emissions of PM2.5 (tons)")
 
 g <- g + geom_hline(aes(yintercept=vehicleRelated[1]),color="red")
@@ -66,4 +66,4 @@ g <- g + geom_hline(aes(yintercept=vehicleRelated[8]),color="blue")
 g <- g + geom_text(aes(
       label=format(vehicleRelated, digits=1, scientific=FALSE)),
       size=2, vjust=-0.5, hjust=.5)
-ggsave("./plot6.png")
+ggsave("./plot6.png", width=5, height=5, dpi=120)

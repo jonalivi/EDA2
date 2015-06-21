@@ -70,4 +70,4 @@ g <- g + geom_text(aes(
       size=3, vjust=1.5)
 g <- g + geom_hline(aes(yintercept=totalCoalRelated[1]),color="blue")
 g <- g + geom_hline(aes(yintercept=totalCoalRelated[4]),color="blue")
-ggsave("./plot4.png")
+ggsave("./plot4.png", width=5, height=5, dpi=120)
